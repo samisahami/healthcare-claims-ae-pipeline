@@ -1,0 +1,8 @@
+version: 2
+
+sources:
+  - name: raw
+    database: healthcare_ae
+    schema: raw
+    tables:
+      - name: claims_raw

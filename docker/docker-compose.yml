@@ -1,0 +1,15 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: hc_postgres
+    environment:
+      POSTGRES_USER: ae_user
+      POSTGRES_PASSWORD: ae_pass
+      POSTGRES_DB: healthcare_ae
+    ports:
+      - "5433:5432"
+    volumes:
+      - hc_pgdata:/var/lib/postgresql/data
+
+volumes:
+  hc_pgdata:

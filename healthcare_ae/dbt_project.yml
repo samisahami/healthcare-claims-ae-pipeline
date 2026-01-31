@@ -1,0 +1,10 @@
+name: healthcare_ae
+version: '1.0'
+profile: healthcare_ae
+
+models:
+  healthcare_ae:
+    staging:
+      +schema: staging
+    marts:
+      +schema: marts

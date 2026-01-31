@@ -1,0 +1,13 @@
+# Python
+.venv/
+__pycache__/
+
+# dbt
+target/
+logs/
+
+# Data
+data/
+
+# OS
+.DS_Store

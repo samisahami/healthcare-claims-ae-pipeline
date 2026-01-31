@@ -1,0 +1,53 @@
+version: 2
+
+models:
+  - name: stg_claims
+    description: >
+      Cleaned and standardized healthcare claims data sourced from the raw
+      claims ingestion layer. This model normalizes column names, enforces
+      data types, and serves as the base layer for analytics marts.
+
+    columns:
+      - name: claim_id
+        description: Unique identifier for each claim.
+        tests:
+          - not_null
+          - unique
+
+      - name: member_id
+        description: Identifier for the member associated with the claim.
+        tests:
+          - not_null
+
+      - name: provider_id
+        description: Identifier for the healthcare provider submitting the claim.
+        tests:
+          - not_null
+
+      - name: claim_date
+        description: Date the claim was submitted.
+        tests:
+          - not_null
+
+      - name: diagnosis_code
+        description: ICD diagnosis code associated with the claim.
+
+      - name: procedure_code
+        description: CPT / procedure code billed for the claim.
+
+      - name: claim_amount
+        description: Total amount billed for the claim.
+        tests:
+          - not_null
+
+      - name: paid_amount
+        description: Amount paid toward the claim.
+        tests:
+          - not_null
+
+      - name: claim_status
+        description: Status of the claim in the adjudication lifecycle.
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['PAID', 'PENDING', 'DENIED']

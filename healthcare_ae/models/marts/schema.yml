@@ -1,0 +1,53 @@
+version: 2
+
+models:
+  - name: claims_summary
+    description: >
+      Aggregated claims metrics by claim status. This model provides
+      high-level visibility into claim volume, financial exposure,
+      and unpaid balances.
+
+    columns:
+      - name: claim_status
+        description: Claim adjudication status (PAID, PENDING, DENIED).
+
+      - name: claim_count
+        description: Number of claims in each status.
+        tests:
+          - not_null
+
+      - name: total_claim_amount
+        description: Total billed amount for claims in each status.
+        tests:
+          - not_null
+
+      - name: total_paid_amount
+        description: Total paid amount for claims in each status.
+        tests:
+          - not_null
+
+      - name: total_unpaid_amount
+        description: Total unpaid balance for claims in each status.
+        tests:
+          - not_null
+
+  - name: claims_kpis
+    description: >
+      High-level operational KPIs derived from claims data, including
+      total claim volume, total billed vs paid amounts, and payout ratio.
+
+    columns:
+      - name: total_claims
+        description: Total number of claims processed.
+
+      - name: total_billed
+        description: Sum of all claim amounts billed.
+
+      - name: total_paid
+        description: Sum of all amounts paid.
+
+      - name: total_unpaid
+        description: Remaining unpaid claim balance.
+
+      - name: payout_ratio
+        description: Ratio of paid amount to billed amount.
