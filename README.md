@@ -10,6 +10,13 @@
 
 End-to-end analytics engineering project using PostgreSQL, dbt, and Docker.
 
+## 📊 Dashboard Preview
+
+### Claims Performance Overview
+![Claims Dashboard Overview](docs/images/dashboard_overview_v2.png)
+
+### Claim-Level Breakdown
+![Claims Dashboard Detail](docs/images/dashboard_detail_v2.png)
 
 
 \## Project Structure
