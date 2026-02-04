@@ -39,6 +39,15 @@ End-to-end analytics engineering project using PostgreSQL, dbt, and Docker.
 
 👉 \*\*See `healthcare\_ae/README.md` for full dbt model and lineage documentation.\*\*
 
+## Data Model Lineage (dbt)
+
+This project follows a layered dbt analytics engineering architecture:
+
+- **Raw layer**: source-aligned ingestion
+- **Staging layer**: cleaned and conformed models
+- **Mart layer**: analytics-ready KPIs and aggregates for dashboards
+
+![dbt Lineage](docs/images/dbt_lineage.png)
 
 
 \## Tech Stack
