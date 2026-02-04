@@ -35,7 +35,7 @@ models:
       - name: procedure_code
         description: CPT / procedure code billed for the claim.
 
-      - name: claim_amount
+      - name: billed_amount
         description: Total amount billed for the claim.
         tests:
           - not_null

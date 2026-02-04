@@ -30,6 +30,20 @@ models:
         description: Total unpaid balance for claims in each status.
         tests:
           - not_null
+      
+      - name: claims_monthly
+        description: Monthly rollup of claim volume and financials, including denial rate.
+        columns:
+          - name: month
+            tests: [not_null, unique]
+
+
+          - name: claim_count
+            tests: [not_null]
+
+
+          - name: denial_rate
+            tests: [not_null]
 
   - name: claims_kpis
     description: >

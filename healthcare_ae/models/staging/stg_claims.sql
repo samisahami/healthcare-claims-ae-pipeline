@@ -1,7 +1,7 @@
 with source as (
 
     select *
-    from {{ source('raw', 'claims_raw') }}
+    from {{ raw_claims_relation() }}
 
 ),
 
@@ -11,14 +11,25 @@ renamed as (
         claim_id,
         member_id,
         provider_id,
-        claim_date,
-        diagnosis_code,
-        procedure_code,
-        claim_amount,
+
+        -- dates
+        service_date    as claim_date,
+
+        -- codes
+        dx_code         as diagnosis_code,
+        proc_code       as procedure_code,
+
+        -- money (canonical)
+        billed_amount,
+        allowed_amount,
         paid_amount,
+
+        -- status
         claim_status
+
     from source
 
 )
 
-select * from renamed
+select *
+from renamed
